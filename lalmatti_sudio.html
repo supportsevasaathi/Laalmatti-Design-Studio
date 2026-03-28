@@ -1,67 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Laalmatti Design Studio</title>
+  <title>Laalmattti Design Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
     body {
-  margin: 0;
-  font-family: Arial;
-  background: #121212;
-  color: white;
-}
+      margin: 0;
+      font-family: Arial;
+      background: #121212;
+      color: white;
+    }
 
-.container {
-  max-width: 500px;
-  margin: auto;
-  padding: 16px;
-}
+    .container {
+      max-width: 500px;
+      margin: auto;
+      padding: 16px;
+    }
 
-.title {
-  font-size: 28px;
-  font-weight: bold;
-}
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+    }
 
-.rating {
-  color: #9aa0a6;
-  margin-top: 5px;
-}
+    .rating {
+      color: #9aa0a6;
+      margin-top: 5px;
+    }
 
-.tabs {
-  display: flex;
-  gap: 10px;
-  margin: 15px 0;
-}
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin: 15px 0;
+    }
 
-.tab {
-  background: #2a2a2a;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 14px;
-}
+    .tab {
+      background: #2a2a2a;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
 
-.image {
-  width: 100%;
-  border-radius: 12px;
-}
+    /* IMAGE SLIDER */
+    .slider {
+      position: relative;
+    }
 
-.buttons {
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0;
-}
+    .slides {
+      display: none;
+      width: 100%;
+      border-radius: 12px;
+    }
 
-.btn {
-  background: #2a2a2a;
-  padding: 12px;
-  border-radius: 50%;
-  font-size: 18px;
-}
+    .active {
+      display: block;
+    }
 
-.info {
-  color: #9aa0a6;
-  line-height: 1.6;
-}
+    /* BUTTONS */
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+    }
+
+    .btn {
+      background: #2a2a2a;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 18px;
+      text-decoration: none;
+      color: white;
+    }
+
+    /* INFO */
+    .info {
+      color: #9aa0a6;
+      line-height: 1.6;
+    }
+
+    /* MAP */
+    iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
 
   </style>
 </head>
@@ -70,8 +93,8 @@
 
 <div class="container">
 
-  <div class="title">Laalmatti Design Studio</div>
-  <div class="rating">⭐ 5.0 (4) • Laalmatti Design Studio</div>
+  <div class="title">Laalmattti Design Studio</div>
+  <div class="rating">⭐ 5.0 (4) • Architecture firm</div>
 
   <div class="tabs">
     <div class="tab">Overview</div>
@@ -79,19 +102,54 @@
     <div class="tab">Reviews</div>
   </div>
 
-  <img src="C:\images\project1.PNG" class="image">
-
-  <div class="buttons">
-  <a href="https://www.instagram.com/laalmatti_design_studio?igsh=MTEzd3FwY3JqcnZpeA==" target="_blank" class="btn">📸</a>
-  <a href="laalmattidesignstudio05@gmail.com" class="btn">✉️</a>
-</div
-
-  <div class="info">
-    <p>📍 Bhalgat corner building, shop number 2, hanuman chowk, Narayangaon</p>
-    <p>⏰ Open • Closes 6 pm</p>
+  <!-- IMAGE SLIDER -->
+  <div class="slider">
+    <img class="slides active" src="images/img1.jpeg">
+    <img class="slides" src="images/img2.jpeg">
+    <img class="slides" src="images/img3.jpeg">
+     <img class="slides" src="images/img3.jpeg">
   </div>
 
+  <!-- BUTTONS -->
+  <div class="buttons">
+    <a href="https://www.instagram.com/laalmatti_design_studio?igsh=MTEzd3FwY3JqcnZpeA==" class="btn">📸</a>
+    <a href="laalmattidesignstudio05@gmail.com" class="btn">✉️</a>
+  </div>
+
+  <!-- INFO -->
+  <div class="info">
+    <p>📍 Narayangaon, Pune, Maharashtra</p>
+    <p>⏰ Open • Closes 6 pm</p>
+    <p>📸 https://www.instagram.com/laalmatti_design_studio?igsh=MTEzd3FwY3JqcnZpeA==</p>
+  </div>
+
+  <!-- GOOGLE MAP -->
+  <iframe 
+    src="https://maps.google.com/maps?q=Pune&t=&z=13&ie=UTF8&iwloc=&output=embed">
+  </iframe>
+
 </div>
+
+<!-- SLIDER SCRIPT -->
+<script>
+let index = 0;
+const slides = document.getElementsByClassName("slides");
+
+function showSlides() {
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");
+  }
+
+  index++;
+  if (index > slides.length) { index = 1 }
+
+  slides[index - 1].classList.add("active");
+
+  setTimeout(showSlides, 3000);
+}
+
+showSlides();
+</script>
 
 </body>
 </html>
